@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
-import Counter from "./Components/counter";
+import Counters from "./Components/counters";
 
 function App() {
-  return <Counter />;
+  return <Counters />;
 }
 
 export default App;
