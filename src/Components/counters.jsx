@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import Counter from "./counter";
 
-class counters extends Component {
+class Counters extends Component {
   state = {
-    counters: [
+    Counters: [
       { id: 1, value: 4 },
       { id: 2, value: 0 },
       { id: 3, value: 0 },
@@ -11,15 +11,25 @@ class counters extends Component {
     ],
   };
 
+  handleDelete = counterId => {
+    const Counters = this.state.Counters.filter(c => c.id !== counterId);
+    this.setState({ Counters});
+  };
+
   render() {
     return (
       <div>
-        {this.state.counters.map(counter =>
-          <Counter key={counter.id} value={counter.value} selected={true} />
-        )}
+        {this.state.Counters.map((counter) => (
+          <Counter
+            key={counter.id}
+            onDelete={this.handleDelete}
+            value={counter.value}
+            id={counter.id}
+          ></Counter>
+        ))}
       </div>
     );
   }
 }
 
-export default counters;
+export default Counters;
